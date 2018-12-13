@@ -12,9 +12,9 @@
 
 \maketitle
 
-\begin{frame}{Outline}
-	\tableofcontents
-\end{frame}
+%\begin{frame}{Outline}
+%	\tableofcontents
+%\end{frame}
 
 \section{Introduzione}
 
@@ -71,26 +71,34 @@
 	
 \section{Modelli matematici}
 \begin{frame}{Modelli matematici}
-		$$ max\; z = f ( x )\;\; (oppure\; min\; z = f ( x ))$$
-		s.t.
-		$$g_i (x) = \begin{cases} \leq b_i \\ = b_i, & i = 1,\dots,m \\ \geq b_i \end{cases}$$
-		$$x = (x_1,\dots,x_n) \in X \subseteq \mathbb{R}^n$$
+	$$ max\; z = f ( x )\;\; (oppure\; min\; z = f ( x ))$$
+	s.t.
+	$$g_i (x) = \begin{cases} \leq b_i \\ = b_i, & i = 1,\dots,m \\ \geq b_i \end{cases}$$
+	$$x = (x_1,\dots,x_n) \in X \subseteq \mathbb{R}^n$$
 \end{frame}
 
-\begin{frame}{Modello 2D}
-	\begin{center}
-		\begin{align*}
-			& \underset{}{\text{min D}} \\
-			  & \text{s.t.} &   & l_{ij} + l_{ji} + b_{ij} + b_{ji} \geq 1      & i < j    &   & i,j \in I \\
-			  &             &   & y_i - y_j + M_d b_{ij} \leq M_d - d_i         &          &   & i,j \in I \\
-			  &             &   & x_i - x_j + M_w l_{ij} \leq M_w - w_i         &          &   & i,j \in I \\
-			  &             &   & x_i + w_i \leq W                              &          &   & i \in I   \\
-			  &             &   & y_i + d_i \leq D                              &          &   & i \in I   \\
-			  &             &   & b_{ij}, l_{ij} \in \{0,1\}                    & i \neq j &   & i,j \in I \\
-			  &             &   & x_{i}, y_{i}, w_{i}, d_{i} \in \mathbb{R}^{+} &          &   & i \in I   
-		\end{align*}
-	\end{center}
-	
+\section{Packing Problem}
+\begin{frame}{Bin Packing Problem}
+	\begin{block}{Insieme $I$}
+		Si consideri un insieme $I = \{1,\dots,n\}$ di oggetti aventi dimensioni $w_{i}$, $d_{i}$ e $h_{i}$ con $i \in I$	
+	\end{block}
+	\begin{block}{insieme $J$}
+		Si consideri un insieme $J = \{1,\dots,m\}$ di contenitori di uguale dimensione $W$, $D$ e $H$.
+	\end{block}
+	Diamo per ipotesi $w_{i} \leq W$, $d_{i} \leq D$ e $h_{i} \leq H$.
+	\begin{alertblock}{Obiettivo}
+		Minimizzare il numero di contenitori $J$ che riescano a contenere tutti gli oggetti dell'insieme $I$.
+	\end{alertblock}
 \end{frame}
 
+\begin{frame}{Strip Packing Problem}
+	Differenze dal precedente problema:\vspace{.5em}
+	\begin{itemize}
+		\item \textbf{Numero di contenitori}: singolo contenitore;
+		\item \textbf{Dimensioni}: profondit\`a infinita;
+	\end{itemize}
+	\begin{alertblock}{Obiettivo}
+		Minimizzare i metri lineari occupati rispetto la profondit\`a del contenitore.
+	\end{alertblock}
+\end{frame}
 \end{document}
