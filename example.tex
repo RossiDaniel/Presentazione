@@ -58,88 +58,83 @@
 	\end{itemize}
 \end{frame}
 
+\section{Packing Problem}
+\begin{frame}{Packing Problem}
+	Insieme $I = \{1,\dots,n\}$ di oggetti aventi dimensioni $w_{i}$, $d_{i}$ e $h_{i}$.	
+												
+	Insieme $J = \{1,\dots,m\}$ di contenitori di dimensione $W$, $D$ e $H$.
+										
+	Per ipotesi $w_{i} \leq W$, $d_{i} \leq D$ e $h_{i} \leq H$.
+	\vspace{.5em}
+	\begin{minipage}[c]{0.45\textwidth}
+		\begin{alertblock}{Obiettivo Bin Packing}
+			Minimizzare il numero di contenitori $J$ che riescano a contenere tutti gli oggetti dell'insieme $I$.
+		\end{alertblock}	
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.45\textwidth}
+		\begin{alertblock}{Obiettivo Strip Packing}
+			Minimizzare i metri lineari occupati dagli oggetti dell'insieme $I$ rispetto la profondit\`a del contenitore.
+		\end{alertblock}	
+	\end{minipage}
+\end{frame}
+
+
 \section{Modelli matematici}
 \begin{frame}{Modello matematico}
-	\begin{center}
-		\begin{align*}
-			& \underset{}{\text{min D}} \\
-			  & \text{s.t.} &   & l_{ij} + l_{ji} + b_{ij} + b_{ji} \geq 1      & i < j    &   & i,j \in I \\
-			  &             &   & y_i - y_j + M_d b_{ij} \leq M_d - d_i         &          &   & i,j \in I \\
-			  &             &   & x_i - x_j + M_w l_{ij} \leq M_w - w_i         &          &   & i,j \in I \\
-			  &             &   & x_i + w_i \leq W                              &          &   & i \in I   \\
-			  &             &   & y_i + d_i \leq D                              &          &   & i \in I   \\
-			  &             &   & b_{ij}, l_{ij} \in \{0,1\}                    & i \neq j &   & i,j \in I \\
-			  &             &   & x_{i}, y_{i}, w_{i}, d_{i} \in \mathbb{R}^{+} &          &   & i \in I   
-		\end{align*}
-	\end{center}
-		
+	Tratto dall'articolo: Solving the 2D bin packing problem by means of a hybrid evolutionary algorithm
+	\begin{align*}
+		& & &\underset{}{\text{min D}} \\
+		& \text{s.t.} \\
+		  &   &   & l_{ij} + l_{ji} + b_{ij} + b_{ji} \geq 1      & i < j    &   & i,j \in I \\
+		  &   &   & y_i - y_j + M_d b_{ij} \leq M_d - d_i         &          &   & i,j \in I \\
+		  &   &   & x_i - x_j + M_w l_{ij} \leq M_w - w_i         &          &   & i,j \in I \\
+		  &   &   & x_i + w_i \leq W                              &          &   & i \in I   \\
+		  &   &   & y_i + d_i \leq D                              &          &   & i \in I   \\
+		  &   &   & b_{ij}, l_{ij} \in \{0,1\}                    & i \neq j &   & i,j \in I \\
+		  &   &   & x_{i}, y_{i}, w_{i}, d_{i} \in \mathbb{R}^{+} &          &   & i \in I   
+	\end{align*}
 \end{frame}
 
-\section{Packing Problem}
-\begin{frame}{Bin Packing Problem}
-	\begin{block}{Insieme $I$}
-		Si consideri un insieme $I = \{1,\dots,n\}$ di oggetti aventi dimensioni $w_{i}$, $d_{i}$ e $h_{i}$ con $i \in I$	
-	\end{block}
-	\begin{block}{insieme $J$}
-		Si consideri un insieme $J = \{1,\dots,m\}$ di contenitori di uguale dimensione $W$, $D$ e $H$.
-	\end{block}
-	Diamo per ipotesi $w_{i} \leq W$, $d_{i} \leq D$ e $h_{i} \leq H$.
-	\begin{alertblock}{Obiettivo}
-		Minimizzare il numero di contenitori $J$ che riescano a contenere tutti gli oggetti dell'insieme $I$.
-	\end{alertblock}
-\end{frame}
-
-\begin{frame}{Strip Packing Problem}
-	Differenze dal precedente problema:\vspace{.5em}
-	\begin{itemize}
-		\item \textbf{Numero di contenitori}: singolo contenitore;
-		\item \textbf{Dimensioni}: profondit\`a infinita;
-	\end{itemize}
-	\begin{alertblock}{Obiettivo}
-		Minimizzare i metri lineari occupati rispetto la profondit\`a del contenitore.
-	\end{alertblock}
-\end{frame}
-
-\begin{frame}{Sistema di riferimento}
-	Convenzioni adottate: \vspace{.5em}
-	\begin{center}
-		\includegraphics[width=9cm]{figures/cartesian_wd}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Elenco modelli}
-	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{figures/cartesian_wd}
+\begin{frame}{Tecnologie}
+	Durante lo stage sono state usate le seguenti tecnologie:
+						
+	\vspace{.5em}
+	\begin{minipage}[c]{0.2\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.8cm]{figures/coin_banner}
+			\vspace{.5em}
+			\includegraphics[width=1.8cm]{figures/python}
+			\vspace{.5em}
+			\includegraphics[width=1.8cm]{figures/jupyter}
+		\end{figure}
 	\end{minipage}
 	\hfill
-	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{figures/cartesian_wd}
-	\end{minipage}
-	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{figures/cartesian_wd}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=\textwidth]{figures/cartesian_wd}
-	\end{minipage}
+	\begin{minipage}[c]{0.6\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=5cm]{figures/matplotlib-1}
+			\vspace{.5em}
+			\includegraphics[width=5cm]{figures/pandas_logo}
+			\vspace{.5em}
+			\includegraphics[width=4cm]{figures/google_or_tools}
+		\end{figure}
+	\end{minipage}		
 \end{frame}
 
 \begin{frame}{Modello 2D e 2DR}
-												
+						
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Modello 2D}
-			Limiti delle soluzioni
-		\end{alertblock}	
+		\textbf{Modello 2D}:\\Limiti delle soluzioni
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/general2D}
 	\end{minipage}
-							
+				
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Modello 2DR}
-			Ottimalit\`a della soluzione
-		\end{alertblock}	
+		\textbf{Modello 2DR}:\\Ottimalit\`a della soluzione
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -148,21 +143,17 @@
 \end{frame}
 
 \begin{frame}{Modello 2DRS}
-												
+					
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Vie di scarico}
-			Deve essere presente almeno una via di scarico per ciascun pacco
-		\end{alertblock}	
+		\textbf{Vie di scarico}:\\Deve essere presente almeno una via di scarico per ciascun pacco
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/abg_2drs}
 	\end{minipage}
-							
+																						
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Stabilit\`a generale}
-			Le soluzione del modello non implementano la stabilit\`a generale
-		\end{alertblock}	
+		\textbf{Stabilit\`a generale}:\\Le soluzione del modello non implementano la stabilit\`a generale
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -172,19 +163,15 @@
 
 \begin{frame}{Modello 3D}
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Stabilit\`a degli oggetti}
-			Garantita sovrapponendo solo un oggetto
-		\end{alertblock}	
+		\textbf{Stabilit\`a degli oggetti}:\\ Garantita sovrapponendo solo un oggetto
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/3dg}
 	\end{minipage}
-							
+																						
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Oggetti stackable}
-			In generale nei test non tutti gli oggetti erano sovrapponibili
-		\end{alertblock}	
+		\textbf{Oggetti stackable}:\\ In generale nei test non tutti gli oggetti erano sovrapponibili
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -192,26 +179,86 @@
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Errori confronto}
-	\begin{block}{Objective value}
-		Metri lineari minimizzati dal modello e dall'euristica:
-		\begin{itemize}
-			\item Objective modello: $Obj_m$
-			\item Objective euristica: $Obj_h$
-		\end{itemize}
-	\end{block}
+\begin{frame}{Test computazionale}
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Errore assoluto:}
-			$$\epsilon_a = Obj_h - Obj_m$$
-		\end{alertblock}
+		\textbf{Istanza}:\\ insieme formato dai pacchi da disporre nel contenitore.
+		\vspace{.5cm}
+
+		\textbf{Gruppo di istanze}:\\ insieme di istanze accomunate tra loro dal numero di pacchi o dalle loro dimensioni.
+
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Errore relativo:}
-			$$\epsilon_r = \frac{\epsilon_a}{Obj_m} \cdot 100$$
-		\end{alertblock}	
+		\begin{center}
+			\begin{tabular}{l |r|r|r|r}
+				\# & $w_a$ & $w_b$ & $d_a$ & $d_b$ \\
+				\hline	
+				0  & 0.5   & 2.45  & 0.5   & 2.45  \\
+				1  & 0.5   & 1.50  & 0.5   & 4.00  \\
+				2  & 1.5   & 2.45  & 0.5   & 4.00  \\
+				3  & 0.5   & 1.50  & 3.0   & 4.00  \\
+				4  & 1.5   & 2.45  & 3.0   & 4.00  \\
+				5  & 0.1   & 1.00  & 0.1   & 1.00  \\
+				6  & 0.1   & 1.00  & 3.0   & 4.00  \\
+				7  & 2.0   & 2.45  & 3.0   & 4.00  \\
+				8  & 2.0   & 2.45  & 2.0   & 2.45  \\
+				9  & 0.1   & 1.00  & 0.1   & 4.00  \\
+			\end{tabular}
+		\end{center}
 	\end{minipage}
-					
+\end{frame}
+
+\begin{frame}{Errori e criticit\`a}
+	\begin{minipage}[c]{0.45\textwidth}
+		Errori:
+		\begin{itemize}
+			\item $\epsilon_a = Obj_h - Obj_m$
+			\item $\epsilon_r = \frac{\epsilon_a}{Obj_m} \cdot 100$
+		\end{itemize}	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.45\textwidth}
+		Criticit\`a:
+		\begin{itemize}
+			\item \textbf{2DRS}: stabilit\`a generale;
+			\item \textbf{3D}: stabilit\`a sovrapposizione.
+		\end{itemize}	\end{minipage}
+\end{frame}
+
+\begin{frame}{ciucia}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{lrrrr}
+			{} & \#ist & $\epsilon_r$ & $\epsilon_a$ & Time  \\
+			\hline
+			0  & 64.0  & 3.89         & 0.23         & 40.95 \\
+			1  & 73.0  & 11.90        & 0.81         & 31.51 \\
+			2  & 76.0  & 0.94         & 0.10         & 19.76 \\
+			3  & 84.0  & 12.29        & 1.26         & 19.79 \\
+			4  & 75.0  & 0.00         & 0.00         & 27.69 \\
+			5  & 73.0  & 14.17        & 0.11         & 12.58 \\
+			6  & 78.0  & 6.60         & 0.47         & 20.95 \\
+			7  & 76.0  & 0.00         & 0.00         & 36.62 \\
+			8  & 81.0  & 0.00         & 0.00         & 23.70 \\
+			9  & 81.0  & 10.34        & 0.45         & 10.60 \\
+		\end{tabular}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\centering
+		\begin{tabular}{lrrrr}
+			{} & \#ist & $\epsilon_r$ & $\epsilon_a$ \\
+			\hline
+			0  & 36.0  & 7.35         & 0.59         \\
+			1  & 27.0  & 15.98        & 1.48         \\
+			2  & 24.0  & 0.91         & 0.17         \\
+			3  & 16.0  & 17.26        & 2.62         \\
+			4  & 25.0  & 0.00         & 0.00         \\
+			5  & 27.0  & 16.16        & 0.21         \\
+			6  & 22.0  & 19.40        & 1.70         \\
+			7  & 24.0  & 0.00         & 0.00         \\
+			8  & 19.0  & 0.00         & 0.00         \\
+			9  & 19.0  & 20.58        & 1.10         \\
+		\end{tabular}
+	\end{minipage}
 \end{frame}
 					
 \end{document}
