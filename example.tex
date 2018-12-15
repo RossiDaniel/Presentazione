@@ -61,9 +61,9 @@
 \section{Packing Problem}
 \begin{frame}{Packing Problem}
 	Insieme $I = \{1,\dots,n\}$ di oggetti aventi dimensioni $w_{i}$, $d_{i}$ e $h_{i}$.	
-												
+														
 	Insieme $J = \{1,\dots,m\}$ di contenitori di dimensione $W$, $D$ e $H$.
-										
+												
 	Per ipotesi $w_{i} \leq W$, $d_{i} \leq D$ e $h_{i} \leq H$.
 	\vspace{.5em}
 	\begin{minipage}[c]{0.45\textwidth}
@@ -98,7 +98,7 @@
 
 \begin{frame}{Tecnologie}
 	Durante lo stage sono state usate le seguenti tecnologie:
-						
+								
 	\vspace{.5em}
 	\begin{minipage}[c]{0.2\textwidth}
 		\begin{figure}
@@ -124,7 +124,7 @@
 \end{frame}
 
 \begin{frame}{Modello 2D e 2DR}
-						
+								
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Modello 2D}:\\Limiti delle soluzioni
 	\end{minipage}
@@ -132,7 +132,7 @@
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/general2D}
 	\end{minipage}
-				
+						
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Modello 2DR}:\\Ottimalit\`a della soluzione
 	\end{minipage}
@@ -143,7 +143,7 @@
 \end{frame}
 
 \begin{frame}{Modello 2DRS}
-					
+							
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Vie di scarico}:\\Deve essere presente almeno una via di scarico per ciascun pacco
 	\end{minipage}
@@ -151,7 +151,7 @@
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/abg_2drs}
 	\end{minipage}
-																						
+																								
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Stabilit\`a generale}:\\Le soluzione del modello non implementano la stabilit\`a generale
 	\end{minipage}
@@ -169,7 +169,7 @@
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/3dg}
 	\end{minipage}
-																						
+																								
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Oggetti stackable}:\\ In generale nei test non tutti gli oggetti erano sovrapponibili
 	\end{minipage}
@@ -183,9 +183,16 @@
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Istanza}:\\ insieme formato dai pacchi da disporre nel contenitore.
 		\vspace{.5cm}
-
-		\textbf{Gruppo di istanze}:\\ insieme di istanze accomunate tra loro dal numero di pacchi o dalle loro dimensioni.
-
+				
+		\textbf{Gruppo di istanze}:\\ insieme di istanze accomunate tra loro dal numero di pacchi o dalle loro dimensioni.\\
+				
+		\textbf{Time Limit}: 300 secondi\\
+				
+		Soluzioni:
+		\begin{itemize}
+			\item ottime
+			\item best bound
+		\end{itemize}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -208,25 +215,11 @@
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Errori e criticit\`a}
-	\begin{minipage}[c]{0.45\textwidth}
-		Errori:
-		\begin{itemize}
-			\item $\epsilon_a = Obj_h - Obj_m$
-			\item $\epsilon_r = \frac{\epsilon_a}{Obj_m} \cdot 100$
-		\end{itemize}	\end{minipage}
-	\hfill
-	\begin{minipage}[c]{0.45\textwidth}
-		Criticit\`a:
-		\begin{itemize}
-			\item \textbf{2DRS}: stabilit\`a generale;
-			\item \textbf{3D}: stabilit\`a sovrapposizione.
-		\end{itemize}	\end{minipage}
-\end{frame}
-
-\begin{frame}{ciucia}
-	\begin{minipage}{0.5\textwidth}
+\begin{frame}{Risultati 2DR}
+	\begin{minipage}{0.49\textwidth}
 		\centering
+		\textbf{Ottime}
+				
 		\begin{tabular}{lrrrr}
 			{} & \#ist & $\epsilon_r$ & $\epsilon_a$ & Time  \\
 			\hline
@@ -242,8 +235,10 @@
 			9  & 81.0  & 10.34        & 0.45         & 10.60 \\
 		\end{tabular}
 	\end{minipage}
-	\begin{minipage}{0.5\textwidth}
+	\begin{minipage}{0.49\textwidth}
 		\centering
+		\textbf{Best bound}
+				
 		\begin{tabular}{lrrrr}
 			{} & \#ist & $\epsilon_r$ & $\epsilon_a$ \\
 			\hline
@@ -259,6 +254,54 @@
 			9  & 19.0  & 20.58        & 1.10         \\
 		\end{tabular}
 	\end{minipage}
+	\vspace{.5em}
+	\begin{itemize}
+		\item $\epsilon_a = Obj_h - Obj_m$
+		\item $\epsilon_r = \frac{\epsilon_a}{Obj_m} \cdot 100$
+	\end{itemize}	
 \end{frame}
-					
+
+\begin{frame}{Raggiungimento degli obiettivi (1)}
+	\begin{center}
+		4 Modelli $\Rightarrow$ 4 Macro-Obiettivi
+	\end{center}
+	
+	Ogni obiettivo composto da diversi sotto-obiettivi
+	\begin{itemize}
+		\item Introduzione di un nuovo obiettivo:
+		      \begin{itemize}
+		      	\item Realizzazione modello 2DRS;
+		      \end{itemize}
+		\item Due variazioni nel corso dello stage:
+		      \begin{itemize}
+		      	\item Confronto con l'euristica eseguito alla fine;
+		      	\item Integrazione funzionalità euristica svolto in parallelo con lo sviluppo dei modelli.
+		      \end{itemize}
+	\end{itemize}
+	Realizzazione modello grazie ad una minor durata:
+	\begin{itemize}
+		\item formazione;
+		\item realizzazione modelli.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Consuntivo finale}
+	\begin{center}
+		\begin{tabular}{l |r|r|r|r}
+			{} & \#ist & $\epsilon_r$ & $\epsilon_a$ & Time  \\
+			\hline
+			0  & 64.0  & 3.89         & 0.23         & 40.95 \\
+			1  & 73.0  & 11.90        & 0.81         & 31.51 \\
+			2  & 76.0  & 0.94         & 0.10         & 19.76 \\
+			3  & 84.0  & 12.29        & 1.26         & 19.79 \\
+			4  & 75.0  & 0.00         & 0.00         & 27.69 \\
+			5  & 73.0  & 14.17        & 0.11         & 12.58 \\
+			6  & 78.0  & 6.60         & 0.47         & 20.95 \\
+			7  & 76.0  & 0.00         & 0.00         & 36.62 \\
+			8  & 81.0  & 0.00         & 0.00         & 23.70 \\
+			9  & 81.0  & 10.34        & 0.45         & 10.60 \\
+		\end{tabular}
+	\end{center}
+\end{frame}
+
 \end{document}
