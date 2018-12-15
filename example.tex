@@ -2,14 +2,44 @@
 
 \usetheme{Padova}
 
+\newsavebox{\authbox}
+\sbox{\authbox}{
+	\centering
+	\begin{minipage}{0.45\linewidth}
+		\centering\normalsize
+		\textcolor{white}{Candidato} \par
+		\textcolor{white}{Daniel Rossi}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\linewidth}
+		\centering\normalsize
+		\textcolor{white}{Relatore} \par
+		\textcolor{white}{prof. Luigi De Giovanni}
+	\end{minipage}
+}
+
+
+\newsavebox{\datebox}
+\sbox{\datebox}{
+	\begin{minipage}{0.45\linewidth}
+		\centering\normalsize
+		\textcolor{white}{1}
+	\end{minipage}
+}
+
 \title{Esame di Laurea in Informatica}
 \subtitle{Implementazione di modelli di programmazione matematica per problemi di bin packing}
-\author{Daniel Rossi}
-\date{18 Dicembre 2018}
+\author[Daniel Rossi]{%
+	\usebox{\authbox}
+}
+\date{8 Dicembre 2018}
 
 
 \begin{document}
 
+%\begin{frame}
+%\titlepage
+%\end{frame}
 \maketitle
 
 %\begin{frame}{Outline}
