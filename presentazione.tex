@@ -3,7 +3,7 @@
 \usetheme{Padova}
 
 \newsavebox{\authbox}
-\sbox{\authbox}{
+\sbox{\authbox}{ 
 	\centering
 	\begin{minipage}{0.45\linewidth}
 		\centering\normalsize
@@ -42,10 +42,10 @@
 %\titlepage
 %\end{frame}
 \maketitle
-.
-.
-.
-.
+
+\begin{frame}{Sommario}
+	\tableofcontents
+\end{frame}
 
 \section{Introduzione}
 
@@ -73,7 +73,7 @@
 \end{frame}
 
 \begin{frame}{Tool aziendale}
-	L'azienda ha sviluppato un'euristica per l'ottimizzazione dello spazio occupato dalle merci nel cassone del camion
+	L'azienda ha sviluppato un'euristica per l'ottimizzazione dello spazio occupato dalle merci nel container del camion
 	\begin{figure}[H]
 		\begin{center} \includegraphics[width=1\linewidth]{figures/container_arrows}
 		\end{center}
@@ -167,7 +167,7 @@
 
 \begin{frame}{Modello 3D}
 	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Stabilit\`a sovrapposizione}:\\ Semplificata, ciascun oggetto potr\`a poggiare solo di un altro
+		\textbf{Sovrapposizione stabile}:\\ Semplificata, un oggetto pu\`o poggiare al massimo su un altro oggetto
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -199,7 +199,7 @@
 	\end{minipage}
 																												
 	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Stabilit\`a della sequenza}:\\ Ogni oggetto non pu\`o trovarsi isolato dal resto delle merci durante il viaggio
+		\textbf{Sequenza stabile}:\\ Ogni oggetto non pu\`o trovarsi isolato dal resto delle merci durante il viaggio
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -250,9 +250,9 @@
 		\item \textbf{CheckSequence}: realizzata in due versioni:
 			  \begin{itemize}
 				  \item \textbf{2D}: considerando oggetti alla stessa altezza, controlla ci sia una via di scarico
-				  \item \textbf{3D}: considerando oggetti su pi\`u livelli, controlla ci fosse una via di scarico e che non vi siano altri pacchi sopra di esso
+				  \item \textbf{3D}: considerando oggetti su pi\`u livelli, controlla ci sia una via di scarico e che non vi siano altri pacchi sopra di esso
 			  \end{itemize}
-		\item \textbf{CheckStable}: utilizzata per controllare la stabilit\`a degli oggetti
+		\item \textbf{CheckStable}: utilizzata per controllare sovrapposizioni stabili
 		\item \textbf{ProjectionCommonArea}: utilizzata per verificare se due parallelepipedi avessero intersezioni tra le loro proiezioni rispetto ad una coppia di assi come altezza e profondit\`a.	
 	\end{itemize}
 \end{frame}
