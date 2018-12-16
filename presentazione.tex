@@ -25,12 +25,12 @@
 		\textcolor{white}{\indent 18 Dicembre 2018}
 	\end{minipage}
 }
-\title{Esame di Laurea in Informatica}
-\subtitle{Implementazione di modelli di programmazione matematica per problemi di bin packing}
+\title{\small{Esame di Laurea in Informatica}}
+\subtitle{\Large{Implementazione di modelli di programmazione matematica per problemi di bin packing}}
 \author[Daniel Rossi]{%
 	\usebox{\authbox}
 }
-\institute{Dipartimento di Matematica ''Tullio Levi Civita''}
+\institute{\footnotesize{Dipartimento di Matematica ''Tullio Levi Civita''}}
 \date{%18 Dicembre 2018
 	\usebox{\datebox}
 }
@@ -42,33 +42,38 @@
 %\titlepage
 %\end{frame}
 \maketitle
-
-\begin{frame}{Sommario}
-	\tableofcontents
-\end{frame}
+.
+.
+.
+.
 
 \section{Introduzione}
 
 \begin{frame}{L'azienda}
 	\begin{minipage}[c]{0.45\textwidth}
-		\large{\uppercase{Software supporto decisionale}}
+		\includegraphics[width=1\linewidth]{figures/logo-transcel}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=1\linewidth]{figures/logo-transcel}
+		\begin{itemize}
+			\item tecnica groupage
+			\item merci ADR
+			\item servizio deposito
+		\end{itemize}
 	\end{minipage}
-	\vspace{1.0em}
+			
+	\vspace{3.0em}
+	\large{\uppercase{Software supporto decisionale}}
 	\begin{itemize}
-		\item agevolazione degli operatori;
-		\item operatori meno esperti;
-		\item aumento della produttivit\`a;
-		\item informazioni sullo stato dei trasporti;
-		\item stima di costi e profitti.
+		\item operatori meno esperti
+		\item aumento della produttivit\`a
+		\item informazioni sullo stato dei trasporti
+		\item stima di costi e profitti
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Tool aziendale}
-	L'azienda ha sviluppato un'euristica per l'ottimizzazione dello spazio occupato dalle merci nel cassone del camion.
+	L'azienda ha sviluppato un'euristica per l'ottimizzazione dello spazio occupato dalle merci nel cassone del camion
 	\begin{figure}[H]
 		\begin{center} \includegraphics[width=1\linewidth]{figures/container_arrows}
 		\end{center}
@@ -81,36 +86,27 @@
 		Lo scopo dello stage \`e  quello di realizzare dei modelli di programmazione lineare per la risoluzione dello \\ \textbf{Strip Packing Problem} da usare per valutare l'euristica aziendale
 	\end{alertblock}
 	\begin{itemize}
-		\item \textbf{2D}: versione 2D;
-		\item \textbf{2DR}: versione 2D con rotazione;
-		\item \textbf{2DRS}: versione 2D con rotazione e sequenza di scarico;
-		\item \textbf{3D}: versione 3D con rotazione e sovrapposizione.
+		\item \textbf{2D}: versione 2D
+		\item \textbf{2DR}: versione 2D con rotazione
+		\item \textbf{3D}: versione 3D con rotazione e sovrapposizione
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Packing Problem}
-	Insieme $I = \{1,\dots,n\}$ di oggetti aventi dimensioni $w_{i}$, $d_{i}$ e $h_{i}$.	
-															
-	Insieme $J = \{1,\dots,m\}$ di contenitori di dimensione $W$, $D$ e $H$.
-													
-	Per ipotesi $w_{i} \leq W$, $d_{i} \leq D$ e $h_{i} \leq H$.
+	Insieme $I = \{1,\dots,n\}$ di oggetti aventi dimensioni $w_{i}$, $d_{i}$ e $h_{i}$	
+																		
+	Insieme $J = \{1,\dots,m\}$ di contenitori di dimensione $W$, $D$ e $H$
+																
+	Per ipotesi $w_{i} \leq W$, $d_{i} \leq D$ e $h_{i} \leq H$
 	\vspace{.5em}
-	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Obiettivo Bin Packing}
-			Minimizzare il numero di contenitori $J$ che riescano a contenere tutti gli oggetti dell'insieme $I$.
-		\end{alertblock}	
-	\end{minipage}
-	\hfill
-	\begin{minipage}[c]{0.45\textwidth}
-		\begin{alertblock}{Obiettivo Strip Packing}
-			Minimizzare i metri lineari occupati dagli oggetti dell'insieme $I$ rispetto la profondit\`a del contenitore.
-		\end{alertblock}	
-	\end{minipage}
+	\begin{alertblock}{Obiettivo Strip Packing}
+		Minimizzare i metri lineari occupati dagli oggetti dell'insieme $I$ rispetto la profondit\`a del contenitore
+	\end{alertblock}	
+	Obiettivo Bin Packing \`e invece minimizzare il numero di contenitori $J$ che riescano a contenere tutti gli oggetti dell'insieme $I$
 \end{frame}
 
 
-\begin{frame}{Modello matematico}
-	Tratto dall'articolo: Solving the 2D bin packing problem by means of a hybrid evolutionary algorithm
+\begin{frame}{Base dei modelli matematici \scriptsize{(Blum e Schmid, 2013)}}
 	\begin{align*}
 		& & &\underset{}{\text{min D}} \\
 		& \text{s.t.} \\
@@ -122,11 +118,10 @@
 		  &   &   & b_{ij}, l_{ij} \in \{0,1\}                    & i \neq j &   & i,j \in I \\
 		  &   &   & x_{i}, y_{i}, w_{i}, d_{i} \in \mathbb{R}^{+} &          &   & i \in I   
 	\end{align*}
+	\scriptsize{Articolo: Solving the 2D bin packing problem by means of a hybrid evolutionary algorithm, C. Blum and V. Schmid, 2013}
 \end{frame}
 
 \begin{frame}{Tecnologie}
-	Durante lo stage sono state usate le seguenti tecnologie:
-									
 	\vspace{.5em}
 	\begin{minipage}[c]{0.2\textwidth}
 		\begin{figure}
@@ -152,7 +147,7 @@
 \end{frame}
 
 \begin{frame}{Modello 2D e 2DR}
-									
+												
 	\begin{minipage}[c]{0.45\textwidth}
 		\textbf{Modello 2D}:\\Punto di partenza
 	\end{minipage}
@@ -160,9 +155,9 @@
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/general2D}
 	\end{minipage}
-							
+										
 	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Modello 2DR}:\\Ottimalit\`a della soluzione
+		\textbf{Modello 2DR}:\\Possibilit\`a di sfruttare meglio gli spazi
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -170,36 +165,17 @@
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Modello 2DRS}
-								
-	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Vie di scarico}:\\Deve essere presente almeno una via di scarico per ciascun pacco
-	\end{minipage}
-	\hfill
-	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=1\linewidth]{figures/abg_2drs}
-	\end{minipage}
-																									
-	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Stabilit\`a della sequenza}:\\ Feature non disponibile nel modello, trascurabile su test con pochi oggetti
-	\end{minipage}
-	\hfill
-	\begin{minipage}[c]{0.45\textwidth}
-		\includegraphics[width=1\linewidth]{figures/2d3d}
-	\end{minipage}
-\end{frame}
-
 \begin{frame}{Modello 3D}
 	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Stabilit\`a degli oggetti}:\\ Garantita sovrapponendo solo un oggetto
+		\textbf{Stabilit\`a sovrapposizione}:\\ Semplificata, ciascun oggetto potr\`a poggiare solo di un altro
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
 		\includegraphics[width=1\linewidth]{figures/3dg}
 	\end{minipage}
-
+			
 	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Oggetti stackable}:\\ In generale nei test non tutti gli oggetti erano sovrapponibili
+		\textbf{Oggetti stackable}:\\ Alcuni oggetti potrebbero non essere sovrapponibili
 	\end{minipage}
 	\hfill
 	\begin{minipage}[c]{0.45\textwidth}
@@ -207,15 +183,39 @@
 	\end{minipage}
 \end{frame}
 
+\begin{frame}{Modello 2DRS}
+											
+	\begin{minipage}[c]{0.45\textwidth}
+		\textbf{Vie di scarico}:\\Deve essere presente almeno una via di scarico per ciascun pacco tra:
+		\begin{itemize}
+			\item $\alpha$: scarico da sinistra
+			\item $\beta$: scarico da destra
+			\item $\gamma$: scarico frontale
+		\end{itemize}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.45\textwidth}
+		\includegraphics[width=1\linewidth]{figures/abg_2drs}
+	\end{minipage}
+																												
+	\begin{minipage}[c]{0.45\textwidth}
+		\textbf{Stabilit\`a della sequenza}:\\ Ogni oggetto non pu\`o trovarsi isolato dal resto delle merci durante il viaggio
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.45\textwidth}
+		\includegraphics[width=1\linewidth]{figures/2d3d}
+	\end{minipage}
+\end{frame}
+
 \begin{frame}{Test computazionale}
 	\begin{minipage}[c]{0.45\textwidth}
-		\textbf{Istanza}:\\ insieme formato dai pacchi da disporre nel contenitore.
+		\textbf{Istanza}: insieme formato dai pacchi da disporre nel contenitore
 		\vspace{.5cm}
-						
-		\textbf{Gruppo di istanze}:\\ insieme di istanze accomunate tra loro dal numero di pacchi o dalle loro dimensioni.\\
-						
+												
+		\textbf{Gruppo di istanze}: insieme di 100 istanze accomunate tra loro dalle loro dimensioni, identificati da un $Id$\\
+												
 		\textbf{Time Limit}: 300 secondi\\
-						
+												
 		Soluzioni:
 		\begin{itemize}
 			\item ottime
@@ -228,60 +228,74 @@
 			\begin{tabular}{c|c|c|c|c}
 				$Id$ & $w_a$ & $w_b$ & $d_a$ & $d_b$ \\
 				\hline	
-				0  & 0.5   & 2.45  & 0.5   & 2.45  \\
-				1  & 0.5   & 1.50  & 0.5   & 4.00  \\
-				2  & 1.5   & 2.45  & 0.5   & 4.00  \\
-				3  & 0.5   & 1.50  & 3.0   & 4.00  \\
-				4  & 1.5   & 2.45  & 3.0   & 4.00  \\
-				5  & 0.1   & 1.00  & 0.1   & 1.00  \\
-				6  & 0.1   & 1.00  & 3.0   & 4.00  \\
-				7  & 2.0   & 2.45  & 3.0   & 4.00  \\
-				8  & 2.0   & 2.45  & 2.0   & 2.45  \\
-				9  & 0.1   & 1.00  & 0.1   & 4.00  \\
+				0    & 0.5   & 2.45  & 0.5   & 2.45  \\
+				1    & 0.5   & 1.50  & 0.5   & 4.00  \\
+				2    & 1.5   & 2.45  & 0.5   & 4.00  \\
+				3    & 0.5   & 1.50  & 3.0   & 4.00  \\
+				4    & 1.5   & 2.45  & 3.0   & 4.00  \\
+				5    & 0.1   & 1.00  & 0.1   & 1.00  \\
+				6    & 0.1   & 1.00  & 3.0   & 4.00  \\
+				7    & 2.0   & 2.45  & 3.0   & 4.00  \\
+				8    & 2.0   & 2.45  & 2.0   & 2.45  \\
+				9    & 0.1   & 1.00  & 0.1   & 4.00  \\
 			\end{tabular}
 		\end{center}
+		width: [$w_a$,$w_b$], depth: [$d_a$,$d_b$]
 	\end{minipage}
+\end{frame}
+
+\begin{frame}{Sviluppo funzionalit\`a euristica}
+	\begin{itemize}
+		\item \textbf{CheckFeasible}: utilizzata per controllare che non vi fossero pacchi intersecati tra loro
+		\item \textbf{CheckSequence}: realizzata in due versioni:
+			  \begin{itemize}
+				  \item \textbf{2D}: considerando oggetti alla stessa altezza, controlla ci sia una via di scarico
+				  \item \textbf{3D}: considerando oggetti su pi\`u livelli, controlla ci fosse una via di scarico e che non vi siano altri pacchi sopra di esso
+			  \end{itemize}
+		\item \textbf{CheckStable}: utilizzata per controllare la stabilit\`a degli oggetti
+		\item \textbf{ProjectionCommonArea}: utilizzata per verificare se due parallelepipedi avessero intersezioni tra le loro proiezioni rispetto ad una coppia di assi come altezza e profondit\`a.	
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Risultati 2DR}
 	\begin{minipage}{0.49\textwidth}
 		\centering
 		\textbf{Ottime}
-
+						
 		\vspace{.5em}
 		\begin{tabular}{c|c|c|c|c}
 			$Id$ & \#ist & $\epsilon_r$ & $\epsilon_a$ & Time  \\
 			\hline
-			0  & 64  & 3.89         & 0.23         & 40.95 \\
-			1  & 73  & 11.90        & 0.81         & 31.51 \\
-			2  & 76  & 0.94         & 0.10         & 19.76 \\
-			3  & 84  & 12.29        & 1.26         & 19.79 \\
-			4  & 75  & 0.00         & 0.00         & 27.69 \\
-			5  & 73  & 14.17        & 0.11         & 12.58 \\
-			6  & 78  & 6.60         & 0.47         & 20.95 \\
-			7  & 76  & 0.00         & 0.00         & 36.62 \\
-			8  & 81  & 0.00         & 0.00         & 23.70 \\
-			9  & 81  & 10.34        & 0.45         & 10.60 \\
+			0    & 64    & 3.89         & 0.23         & 40.95 \\
+			1    & 73    & 11.90        & 0.81         & 31.51 \\
+			2    & 76    & 0.94         & 0.10         & 19.76 \\
+			3    & 84    & 12.29        & 1.26         & 19.79 \\
+			4    & 75    & 0.00         & 0.00         & 27.69 \\
+			5    & 73    & 14.17        & 0.11         & 12.58 \\
+			6    & 78    & 6.60         & 0.47         & 20.95 \\
+			7    & 76    & 0.00         & 0.00         & 36.62 \\
+			8    & 81    & 0.00         & 0.00         & 23.70 \\
+			9    & 81    & 10.34        & 0.45         & 10.60 \\
 		\end{tabular}
 	\end{minipage}
 	\begin{minipage}{0.49\textwidth}
 		\centering
 		\textbf{Best bound}
-
+						
 		\vspace{.5em}
 		\begin{tabular}{c|c|c|c}
 			$Id$ & \#ist & $\epsilon_r$ & $\epsilon_a$ \\
 			\hline
-			0  & 36  & 7.35         & 0.59         \\
-			1  & 27  & 15.98        & 1.48         \\
-			2  & 24  & 0.91         & 0.17         \\
-			3  & 16  & 17.26        & 2.62         \\
-			4  & 25  & 0.00         & 0.00         \\
-			5  & 27  & 16.16        & 0.21         \\
-			6  & 22  & 19.40        & 1.70         \\
-			7  & 24  & 0.00         & 0.00         \\
-			8  & 19  & 0.00         & 0.00         \\
-			9  & 19  & 20.58        & 1.10         \\
+			0    & 36    & 7.35         & 0.59         \\
+			1    & 27    & 15.98        & 1.48         \\
+			2    & 24    & 0.91         & 0.17         \\
+			3    & 16    & 17.26        & 2.62         \\
+			4    & 25    & 0.00         & 0.00         \\
+			5    & 27    & 16.16        & 0.21         \\
+			6    & 22    & 19.40        & 1.70         \\
+			7    & 24    & 0.00         & 0.00         \\
+			8    & 19    & 0.00         & 0.00         \\
+			9    & 19    & 20.58        & 1.10         \\
 		\end{tabular}
 	\end{minipage}
 	\vspace{.5em}
@@ -289,67 +303,62 @@
 		\item $\epsilon_a = Obj_h - Obj_m$
 		\item $\epsilon_r = \frac{\epsilon_a}{Obj_m} \cdot 100$
 	\end{itemize}	
-	\end{frame}
+\end{frame}
 \section{Raggiungimento degli obiettivi}
 \begin{frame}{Raggiungimento degli obiettivi}
-	\begin{center}
-		4 Modelli $\Rightarrow$ 4 Macro-obiettivi
-	\end{center}
-		
+	I 3 periodi di sviluppo prevedevano i seguenti obiettivi:
 	\begin{itemize}
-		\item Introduzione di un nuovo macro-obiettivo:
-		      \begin{itemize}
-		      	\item Realizzazione modello 2DRS;
-		      \end{itemize}
-		\item Due variazioni nel corso dello stage:
-		      \begin{itemize}
-		      	\item Confronto con l'euristica eseguito dopo la realizzazione dei modelli;
-		      	\item Nuove funzioni di verifica dell'euristica sviluppate durante il testing dei modelli.
-		      \end{itemize}
+		\item analisi costraints
+		\item prototipazione
+		\item integrazione nel sistema
+		\item testing e confronto	
 	\end{itemize}
-	Realizzazione modello grazie ad una minor durata:
+	
+	Due variazioni nel corso dello stage:
 	\begin{itemize}
-		\item formazione;
-		\item realizzazione modelli.
+		\item Confronto con l'euristica eseguito dopo la realizzazione dei modelli
+		\item Nuove funzioni di verifica dell'euristica sviluppate durante il testing dei modelli
+		\item Realizzazione nuovo modello non preventivato
 	\end{itemize}
 \end{frame}
 \section{Consuntivo}
 \begin{frame}{Consuntivo}
+	In generale i periodi di sviluppo hanno richiesto:
 	\begin{center}
-		\begin{tabular}{|c |l|c|c|}
+		\begin{tabular}{|c|l|c|c|}
 			\hline
-			\textbf{\#} & \textbf{Macro-Obiettivi} & \textbf{Ore previste} & \textbf{Ore effettive} \\\hline
-			1            & Modello 2D               & 96                    & 64                     \\\hline
-			2            & Modello 2DR              & 64                    & 64                     \\\hline
-			3            & Modello 2DRS             & 0                     & 72                     \\\hline
-			4            & Modello 3D               & 64                    & 72                     \\\hline
-			5            & Confronto con euristica  & 24                    & 16                     \\\hline
+			\textbf{\#} & \textbf{Obiettivi} & \textbf{Ore previste} & \textbf{Ore effettive} \\\hline
+			1           & Modello 2D               & 96                    & 64                     \\\hline
+			2           & Modello 2DR              & 64                    & 64                     \\\hline
+			3           & Modello 2DRS             & 0                     & 72                     \\\hline
+			4           & Modello 3D               & 64                    & 72                     \\\hline
+			5           & Confronto con euristica  & 24                    & 16                     \\\hline
 		\end{tabular}
 	\end{center}
 	Cause cambiamenti tempistiche:
 	\begin{itemize}
-		\item Formazione pi\`u breve;
-		\item Prototipazione modelli 2D e 2DR più rapida;
-		\item Testing e sviluppo euristica in parallelo.
+		\item Formazione pi\`u breve
+		\item Prototipazione modelli 2D e 2DR pi\`u rapida
+		\item Testing e sviluppo funzionalit\`a euristica in parallelo
 	\end{itemize}
 \end{frame}
 \section{Conclusioni}
 \begin{frame}{Conclusioni}
 	\begin{enumerate}
-		\item Tutti gli obiettivi sono stati completati;
-		\item Realizzazione modello non previsto;
-		\item Valutazione positiva dei risultati forniti;
-		\item Importanti conoscenze apprese.
+		\item Tutti gli obiettivi sono stati completati
+		\item Realizzazione modello aggiuntivo
+		\item Valutazione positiva dei risultati forniti
+		\item Importanti conoscenze apprese
 	\end{enumerate}
-	
+				
 	\vspace{.5em}
 	Sviluppi futuri:
 	\begin{itemize}
-		\item Archiviazione soluzioni modelli;
-		\item Stabilit\`a sequenza;
-		\item Stabilit\`a degli oggetti;
+		\item Archiviazione soluzioni modelli
+		\item Stabilit\`a sequenza
+		\item Stabilit\`a degli oggetti
 		\item Sequenza di scarico multilivello
-		\item Unione modelli.
+		\item Unione modelli
 	\end{itemize}
 \end{frame}
 
